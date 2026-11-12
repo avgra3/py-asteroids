@@ -24,9 +24,8 @@ class Asteroid(CircleShape):
         new_ast_one = self.velocity.rotate(rand_angles)
         new_ast_two = self.velocity.rotate(rand_angles * -1)
         new_radius = self.radius - ASTEROID_MIN_RADIUS
-        print(self.position)
-        left = Asteroid(self.position[0], self.position[1], new_radius)
-        right = Asteroid(self.position[0], self.position[1], new_radius)
+        left = Asteroid(*self.position, new_radius)
+        right = Asteroid(*self.position, new_radius)
         left.velocity = new_ast_one * 1.2
         right.velocity = new_ast_two * 1.2
 

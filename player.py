@@ -1,3 +1,6 @@
+from circleshape import CircleShape
+from constants import INITIAL_SCORE
+from constants import PLAYER_LIVES
 from constants import PLAYER_SHOOT_COOLDOWN_SECONDS
 from shot import Shot
 from constants import PLAYER_TURN_SPEED, PLAYER_SPEED, PLAYER_SHOOT_SPEED
@@ -11,6 +14,18 @@ class Player(circleshape.CircleShape):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
         self.shoot_timer = 0
+        self.lives = PLAYER_LIVES
+        self.score = INITIAL_SCORE
+        self.init_x = x
+        self.init_y = y
+
+    def reset(self) -> None:
+        self.position = pygame.Vector2(self.init_x, self.init_y)
+        self.rotation = 0
+        self.shoot_timer = 0
+
+    def decrement_life(self) -> None:
+        self.lives -= 1
 
     def triangle(self) -> list[pygame.Vector2]:
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
