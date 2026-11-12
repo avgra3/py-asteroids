@@ -1,3 +1,4 @@
+from constants import WINDOW_TITLE
 from scoreboard import ScoreBoard, LifeBoard
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -10,6 +11,7 @@ import sys
 
 def main():
     pygame.init()
+    pygame.display.set_caption(WINDOW_TITLE)
     clock = pygame.time.Clock()
     font = pygame.font.SysFont(None, 36)
     dt = 0.0

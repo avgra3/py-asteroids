@@ -27,5 +27,5 @@ class LifeBoard(RectangleShape):
         screen.blit(self.text, self.rectangle)
 
     def update(self, lives_left: int) -> None:
-        self.text = self.font.render(f"Lives left: {lives_left:,}", True, (255, 255, 255))
+        self.text = self.font.render(f"Lives: {lives_left:,}", True, (255, 255, 255))
 
