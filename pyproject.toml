@@ -1,9 +1,54 @@
 [project]
-name = "py-asteroids"
+name = "asteroids"
 version = "0.1.0"
-description = "Add your description here"
+description = "A simple Asteroids game."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "pygame==2.6.1",
 ]
+authors = [
+    { name = "avgra3", email = "antonygradillas@gmail.com" }
+]
+maintainers = [
+    {name = "avgra3", email = "antonygradillas@gmail.com"}
+]
+keywords = ["pygame"]
+
+[project.scripts]
+asteroids = "asteroids.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+asteroids = [
+    "static/icon.png",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.5",
+    "ty>=0.0.103",
+]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py313"
+
+[tool.ruff.lint]
+extend-select = ["E501", "B"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
+docstring-code-format = true
+docstring-code-line-length = 20
+skip-magic-trailing-comma = false
+line-ending = "auto"
+

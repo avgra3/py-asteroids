@@ -1,8 +1,15 @@
+from importlib.resources import files
+from pathlib import Path
+
+# Util to get files
+def get_static_files(name: str) -> Path:
+    return Path(str(files("asteroids") / "static" / name))
+
 # Screen values
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-WINDOW_TITLE = "Asteroids"
-ICON_PATH = "static/icon.png"
+WINDOW_TITLE = 'Asteroids'
+ICON_PATH = get_static_files(name='images/icon.png')
 
 # Generic obj values
 LINE_WIDTH = 2
