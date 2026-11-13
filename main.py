@@ -1,3 +1,4 @@
+from constants import ICON_PATH
 from constants import WINDOW_TITLE
 from scoreboard import ScoreBoard, LifeBoard
 from asteroid import Asteroid
@@ -11,7 +12,9 @@ import sys
 
 def main():
     pygame.init()
+    icon = pygame.image.load(ICON_PATH)
     pygame.display.set_caption(WINDOW_TITLE)
+    pygame.display.set_icon(icon)
     clock = pygame.time.Clock()
     font = pygame.font.SysFont(None, 36)
     dt = 0.0
@@ -35,9 +38,8 @@ def main():
 
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT / 2)
     asteroidField = AsteroidField()
-
-    score_board = ScoreBoard(1, 1, 140, 25, font)
-    life_board = LifeBoard(1, 25, 140, 25, font)
+    score_board = ScoreBoard(0, 1, 140, 25, font)
+    life_board = LifeBoard(0, 25, 140, 25, font)
 
     group = pygame.sprite.Group()
 
@@ -63,6 +65,8 @@ def main():
                     log_event("asteroid_shot")
                     asteroid.split()
                     shot.kill()
+                    if score_board.score % 5 == 0:
+                        player.increment_life()
 
         for to_draw in drawable:
             to_draw.draw(screen)

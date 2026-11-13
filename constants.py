@@ -2,6 +2,7 @@
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 WINDOW_TITLE = "Asteroids"
+ICON_PATH = "static/icon.png"
 
 # Generic obj values
 LINE_WIDTH = 2

@@ -27,6 +27,9 @@ class Player(circleshape.CircleShape):
     def decrement_life(self) -> None:
         self.lives -= 1
 
+    def increment_life(self) -> None:
+        self.lives += 1
+
     def triangle(self) -> list[pygame.Vector2]:
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5
