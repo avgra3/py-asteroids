@@ -12,3 +12,7 @@ wheels/
 # Logs
 game_state.jsonl
 game_events.jsonl
+
+# Requirements file
+requirements.txt
+

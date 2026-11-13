@@ -1,9 +1,11 @@
 from importlib.resources import files
 from pathlib import Path
 
+
 # Util to get files
 def get_static_files(name: str) -> Path:
-    return Path(str(files("asteroids") / "static" / name))
+	return Path(str(files('asteroids') / 'static' / name))
+
 
 # Screen values
 SCREEN_WIDTH = 1280
