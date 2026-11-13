@@ -1,6 +1,6 @@
 [project]
 name = "asteroids"
-version = "0.1.0"
+version = "0.2.0"
 description = "A simple Asteroids game."
 readme = "README.md"
 requires-python = ">=3.13"
@@ -24,6 +24,7 @@ where = ["src"]
 [tool.setuptools.package-data]
 asteroids = [
     "static/icon.png",
+    "static/space.jpg",
 ]
 
 [build-system]
@@ -45,8 +46,6 @@ target-version = "py313"
 extend-select = ["E501", "B"]
 
 [tool.ruff.format]
-quote-style = "single"
-indent-style = "tab"
 docstring-code-format = true
 docstring-code-line-length = 20
 skip-magic-trailing-comma = false

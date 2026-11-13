@@ -1,20 +1,20 @@
 import pygame
-from asteroids.constants import SHOT_RADIUS, LINE_WIDTH
+from asteroids.constants import SHOT_RADIUS, LINE_WIDTH, SHOT_COLOR
 from asteroids.circleshape import CircleShape
 
 
 class Shot(CircleShape):
-	def __init__(self, x: float, y: float) -> None:
-		super().__init__(x, y, SHOT_RADIUS)
+    def __init__(self, x: float, y: float) -> None:
+        super().__init__(x, y, SHOT_RADIUS)
 
-	def draw(self, screen: pygame.Surface) -> None:
-		pygame.draw.circle(
-			screen,
-			color='white',
-			center=self.position,
-			radius=self.radius,
-			width=LINE_WIDTH,
-		)
+    def draw(self, screen: pygame.Surface) -> None:
+        pygame.draw.circle(
+            screen,
+            color=SHOT_COLOR,
+            center=self.position,
+            radius=self.radius,
+            width=LINE_WIDTH,
+        )
 
-	def update(self, dt: float) -> None:
-		self.position += self.velocity * dt
+    def update(self, dt: float) -> None:
+        self.position += self.velocity * dt

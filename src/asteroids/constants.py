@@ -4,17 +4,18 @@ from pathlib import Path
 
 # Util to get files
 def get_static_files(name: str) -> Path:
-	return Path(str(files('asteroids') / 'static' / name))
+    return Path(str(files("asteroids") / "static" / name))
 
 
 # Screen values
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-WINDOW_TITLE = 'Asteroids'
-ICON_PATH = get_static_files(name='images/icon.png')
+WINDOW_TITLE = "Asteroids"
+ICON_PATH = get_static_files(name="images/icon.png")
+BACKGROUND_IMAGE = get_static_files(name="images/space.jpg")
 
 # Generic obj values
-LINE_WIDTH = 2
+LINE_WIDTH = 4
 
 # Player values
 PLAYER_RADIUS = 20
@@ -23,15 +24,18 @@ PLAYER_SPEED = 200
 PLAYER_SHOOT_SPEED = 500
 PLAYER_SHOOT_COOLDOWN_SECONDS = 0.3
 PLAYER_LIVES = 3
+PLAYER_COLOR = "purple"
 
 # Shot values
 SHOT_RADIUS = 5
+SHOT_COLOR = "red"
 
 # Asteroid values
 ASTEROID_MIN_RADIUS = 20
 ASTEROID_KINDS = 3
 ASTEROID_SPAWN_RATE_SECONDS = 0.8
 ASTEROID_MAX_RADIUS = ASTEROID_MIN_RADIUS * ASTEROID_KINDS
+ASTEROID_COLOR = "orange"
 
 # Scoring
 INITIAL_SCORE = 0
