@@ -26,6 +26,7 @@ def play_explosion() -> None:
 
 
 def main():
+    current_width, current_height = SCREEN_WIDTH, SCREEN_HEIGHT
     pygame.init()
     icon = pygame.image.load(ICON_PATH)
     pygame.display.set_caption(WINDOW_TITLE)
@@ -66,6 +67,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            elif event.type == pygame.VIDEORESIZE:
+                new_w = max(SCREEN_WIDTH, min(event.w, SCREEN_WIDTH))
+                new_h = max(SCREEN_HEIGHT, min(event.h, SCREEN_HEIGHT))
+                current_width, current_height = new_w, new_h
+                screen = pygame.display.set_mode((current_width, current_height))
         # screen.fill('black')
         screen.blit(background, (0, 0))
         dt = clock.tick(60) / 1_000
