@@ -4,6 +4,7 @@ from asteroids.constants import (
     WINDOW_TITLE,
     SCREEN_WIDTH,
     SCREEN_HEIGHT,
+    EXPLOSION_SOUND,
 )
 from asteroids.scoreboard import ScoreBoard, LifeBoard
 from asteroids.asteroid import Asteroid
@@ -13,6 +14,15 @@ from asteroids.player import Player
 from asteroids.logger import log_state, log_event
 import pygame
 import sys
+
+
+def play_explosion() -> None:
+    try:
+        pygame.mixer.init()
+        pygame.mixer.music.load(EXPLOSION_SOUND)
+        pygame.mixer.music.play()
+    except pygame.error:
+        print("Sound was unable to play: No such audio device!")
 
 
 def main():
@@ -70,6 +80,7 @@ def main():
                 player.reset()
             for shot in shots:
                 if asteroid.collides_with(shot):
+                    play_explosion()
                     score_board.update_board()
                     log_event("asteroid_shot")
                     asteroid.split()

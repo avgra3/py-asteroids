@@ -29,6 +29,7 @@ PLAYER_COLOR = "purple"
 # Shot values
 SHOT_RADIUS = 5
 SHOT_COLOR = "red"
+EXPLOSION_SOUND = get_static_files(name="audio/explosion.mp3")
 
 # Asteroid values
 ASTEROID_MIN_RADIUS = 20
